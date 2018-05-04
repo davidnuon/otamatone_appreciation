@@ -42,6 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Image.asset('assets/images/banner.png'),
+        elevation: 0.0,
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: new Container(
         child: _getPage(_currentPage),
