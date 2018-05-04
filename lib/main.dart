@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/welcome_page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: new Color(0xff1da1dd),
       ),
       home: new MyHomePage(title: 'otamatone'),
     );
@@ -30,8 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _getPage(int index) {
     List<Widget> pages = [
+      new WelcomePage(),
       new Container(color: Colors.red),
-      new Container(color: Colors.blue),
       new Container(color: Colors.green)
     ];
 
@@ -41,11 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
+      backgroundColor: Theme.of(context).primaryColor,
+      body: new Container(
+        child: _getPage(_currentPage),
       ),
-      body: _getPage(_currentPage),
       bottomNavigationBar: new BottomNavigationBar(
+          currentIndex: _currentPage,
           onTap: (index) {
             setState(() {
               _currentPage = index;
