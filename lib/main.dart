@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/welcome_page.dart';
+import 'components/feed_page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getPage(int index) {
     List<Widget> pages = [
       new WelcomePage(),
-      new Container(color: Colors.red),
+      new FeedPage(),
       new Container(color: Colors.green)
     ];
 
